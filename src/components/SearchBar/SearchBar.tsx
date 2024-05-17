@@ -8,7 +8,6 @@ interface Props {
 const SearchBar: React.FC<Props> = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  // Debounce function
   const debounce = (func: Function, delay: number) => {
     let timer: NodeJS.Timeout;
     return function (...args: any[]) {
@@ -17,15 +16,12 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
     };
   };
 
-  // Debounced search function
-  const debouncedSearch = debounce(onSearch, 1000); // Adjust the delay as needed
+  const debouncedSearch = debounce(onSearch, 1000);
 
-  // Trigger search when searchTerm changes with debounce
   useEffect(() => {
     debouncedSearch(searchTerm);
   }, [searchTerm, debouncedSearch]);
 
-  // Handle input change
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };

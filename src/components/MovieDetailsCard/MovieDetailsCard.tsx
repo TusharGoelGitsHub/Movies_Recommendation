@@ -13,8 +13,9 @@ const MovieDetailsCard = (props: IMovieDetailsProps) => {
         <CardMedia
           component="img"
           height="140"
-          image={poster !== "N/A" ? poster : "/album.svg"}
+          image={poster !== "N/A" ? poster : "/Movie.jpg"}
           alt={title}
+          className={classes.imageStyles}
         />
 
         <div

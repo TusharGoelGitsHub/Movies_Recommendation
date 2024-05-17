@@ -23,7 +23,6 @@ const HomePage = () => {
     }
 
     if (searchTerm.length >= 3) {
-      // Check if search term is at least 3 characters long
       setLoading(true);
       const timeoutId = setTimeout(() => {
         fetch(`https://www.omdbapi.com/?s=${searchTerm}&apikey=8b22c574`)
@@ -52,7 +51,7 @@ const HomePage = () => {
 
   const handleSearch = (searchTerm: string) => {
     setSearchTerm(searchTerm);
-    setSearchErrorMessage(""); // Clear error message when search term changes
+    setSearchErrorMessage("");
   };
 
   const handleFavouriteClick = (id: string) => {
@@ -85,7 +84,7 @@ const HomePage = () => {
 
   return (
     <div className={classes.container}>
-      <h1>🔍 Exploring Movie Magic 🔍</h1>
+      <h1 style={{ cursor: "default" }}>🔍 Exploring Movie Magic 🔍</h1>
       <SearchBar onSearch={handleSearch} />
       {searchErrorMessage && (
         <div className={classes.errorMessage}>{searchErrorMessage}</div>
